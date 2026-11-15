@@ -7,7 +7,7 @@ static BOOL yu_timeshrink_isTimeText(NSString *text) {
     for (NSUInteger i = 0; i < text.length; i++) {
         unichar c = [text characterAtIndex:i];
         if (c >= '0' && c <= '9') hasDigit = YES;
-        else if (c == ':' || c == '\uFF1A') hasColon = YES;
+        else if (c == ':' || c == 0xFF1A) hasColon = YES;
         else if (c != ' ') return NO;
     }
     return hasDigit && hasColon;
