@@ -2,7 +2,7 @@
 
 打开锁屏音乐界面（点开封面）时，把锁屏上的大时间**收缩到状态栏下方**，不再压在封面上；收起音乐后自动恢复。
 
-适配 iOS 16+（SpringBoard / CoverSheet），Rootless 打包。
+适配 iOS 16+（SpringBoard / CoverSheet），**隐根（RootHide / roothide）** 打包，架构 `iphoneos-arm64e`，文件直接安装到 `/Library`（无 `/var/jb`）。
 
 ## 安装
 
@@ -12,6 +12,8 @@
 dpkg -i com.yu.timeshrink_*.deb
 killall -9 SpringBoard
 ```
+
+> 本包只适用于 RootHide（隐根）环境；无根/多巴胺环境请用 rootless 变体重新构建。
 
 ## 使用
 
