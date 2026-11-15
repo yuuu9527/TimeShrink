@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>title</key><string>时间收缩</string>
+    <key>items</key>
+    <array>
+        <dict>
+            <key>cell</key><string>PSGroupCell</string>
+            <key>label</key><string>基本设置</string>
+        </dict>
+        <dict>
+            <key>cell</key><string>PSSwitchCell</string>
+            <key>label</key><string>启用插件</string>
+            <key>key</key><string>enabled</string>
+            <key>defaults</key><string>com.yu.timeshrink</string>
+            <key>default</key><false/>
+        </dict>
+        <dict>
+            <key>cell</key><string>PSTitleValueCell</string>
+            <key>cellClass</key><string>YuTimeShrinkSliderCell</string>
+            <key>label</key><string>收缩比例</string>
+            <key>key</key><string>scale</string>
+            <key>defaults</key><string>com.yu.timeshrink</string>
+            <key>default</key><real>0.30</real>
+            <key>min</key><real>0.15</real>
+            <key>max</key><real>0.60</real>
+        </dict>
+        <dict>
+            <key>cell</key><string>PSSwitchCell</string>
+            <key>label</key><string>同时淡出日期</string>
+            <key>key</key><string>hideDate</string>
+            <key>defaults</key><string>com.yu.timeshrink</string>
+            <key>default</key><true/>
+        </dict>
+
+        <dict>
+            <key>cell</key><string>PSGroupCell</string>
+            <key>footerText</key><string>打开音乐界面（点开封面）时，锁屏时间会自动收缩到状态栏下方，不再压住封面。by 鱼教兽</string>
+        </dict>
+    </array>
+</dict>
+</plist>
