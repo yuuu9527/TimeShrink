@@ -57,7 +57,7 @@ UIView *yu_timeshrink_findClockView(UIView *root) {
     if (bestSize >= yu_timeshrink_clockMinSize) return bestLabel;
     // 不做无障碍文本回退：遍历时唤醒无障碍树会拖死 SpringBoard。
     return nil;
-
+}
 
 UILabel *yu_timeshrink_findDateLabel(UIView *root, UIView *clock) {
     if (!clock) return nil;
