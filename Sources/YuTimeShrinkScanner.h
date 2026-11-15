@@ -3,7 +3,7 @@
 #import <UIKit/UIKit.h>
 
 // 返回锁屏上字号最大的“时间”标签（例如 15:04）。
-FOUNDATION_EXPORT UILabel *yu_timeshrink_findClockLabel(UIView *root);
+FOUNDATION_EXPORT UIView *yu_timeshrink_findClockLabel(UIView *root);
 
 // 返回锁屏上位于时钟上方的日期标签（例如 11月15日 周日）。
 FOUNDATION_EXPORT UILabel *yu_timeshrink_findDateLabel(UIView *root, UIView *clock);
