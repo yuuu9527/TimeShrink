@@ -30,18 +30,27 @@ static void yu_timeshrink_enumerate(UIView *root, NSUInteger budget,
     }
 }
 
-UILabel *yu_timeshrink_findClockLabel(UIView *root) {
-    __block UILabel *best = nil;
+UIView *yu_timeshrink_findClockLabel(UIView *root) {
+    __block UIView *best = nil;
     __block CGFloat bestSize = 0;
     yu_timeshrink_enumerate(root, 6000, ^(UIView *view, BOOL *stop) {
-        if (![view isKindOfClass:[UILabel class]]) return;
-        UILabel *label = (UILabel *)view;
-        if (label.hidden || label.alpha < 0.05) return;
-        if (!yu_timeshrink_isTimeText(label.text)) return;
-        CGFloat size = label.font.pointSize;
+        if (view.hidden || view.alpha < 0.05) return;
+        BOOL matched = NO;
+        CGFloat size = 0;
+        if ([view isKindOfClass:[UILabel class]]) {
+            UILabel *label = (UILabel *)view;
+            matched = yu_timeshrink_isTimeText(label.text);
+            size = label.font.pointSize;
+        }
+        // 有些系统版本用自绘视图，只暴露无障碍文本。
+        if (!matched) {
+            matched = yu_timeshrink_isTimeText(view.accessibilityLabel);
+            size = MAX(size, CGRectGetHeight(view.bounds));
+        }
+        if (!matched) return;
         if (size > bestSize) {
             bestSize = size;
-            best = label;
+            best = view;
         }
     });
     // 正常锁屏时间至少 40pt，避免误抓状态栏的小时间。
