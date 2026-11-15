@@ -1,0 +1,9 @@
+Package: com.yu.timeshrink
+Name: 时间收缩
+Version: 1.0.0
+Architecture: iphoneos-arm
+Description: 打开音乐界面时，锁屏时间自动收缩到顶部，不遮挡封面
+Maintainer: 鱼教兽
+Author: 鱼教兽
+Section: Yu-Tweaks
+Depends: mobilesubstrate, preferenceloader
