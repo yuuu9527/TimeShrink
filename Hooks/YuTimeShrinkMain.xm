@@ -8,7 +8,7 @@ static const CGFloat YuTimeShrinkArtworkRatio = 0.45;   // 封面超过屏宽这
 static const NSTimeInterval YuTimeShrinkScanInterval = 0.4;
 
 @interface YuTimeShrinkAnimator : NSObject
-@property (nonatomic, weak) UILabel *clockLabel;
+@property (nonatomic, weak) UIView *clockLabel;
 @property (nonatomic, weak) UILabel *dateLabel;
 @property (nonatomic, weak) UIView *rootView;
 @property (nonatomic, assign) BOOL expanded;
@@ -78,7 +78,7 @@ static const NSTimeInterval YuTimeShrinkScanInterval = 0.4;
     }
     self.rootView = root;
 
-    UILabel *clock = yu_timeshrink_findClockLabel(root);
+    UIView *clock = yu_timeshrink_findClockLabel(root);
     if (!clock) return;
 
     CGFloat screenWidth = CGRectGetWidth(root.window.bounds);
@@ -99,14 +99,14 @@ static const NSTimeInterval YuTimeShrinkScanInterval = 0.4;
 }
 
 - (BOOL)yu_timeshrink_isApplied {
-    UILabel *clock = self.clockLabel;
+    UIView *clock = self.clockLabel;
     if (!clock) return NO;
     BOOL identity = CGAffineTransformIsIdentity(clock.transform);
     return self.expanded ? !identity : identity;
 }
 
 - (void)yu_timeshrink_applyExpanded:(BOOL)expanded animated:(BOOL)animated {
-    UILabel *clock = self.clockLabel;
+    UIView *clock = self.clockLabel;
     if (!clock || !clock.superview) return;
     YuTimeShrinkConfig *config = [YuTimeShrinkConfig yu_timeshrink_shared];
 
