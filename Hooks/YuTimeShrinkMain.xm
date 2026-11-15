@@ -54,10 +54,13 @@ static const NSTimeInterval YuTimeShrinkScanInterval = 0.4;
 }
 
 - (UIView *)yu_timeshrink_lockScreenView {
-    for (UIWindow *window in [UIApplication sharedApplication].windows) {
-        for (UIView *view in window.subviews) {
-            if ([view isKindOfClass:NSClassFromString(@"CSCoverSheetView")]) {
-                return view;
+    for (UIScene *scene in [UIApplication sharedApplication].connectedScenes) {
+        if (![scene isKindOfClass:[UIWindowScene class]]) continue;
+        for (UIWindow *window in ((UIWindowScene *)scene).windows) {
+            for (UIView *view in window.subviews) {
+                if ([view isKindOfClass:NSClassFromString(@"CSCoverSheetView")]) {
+                    return view;
+                }
             }
         }
     }
