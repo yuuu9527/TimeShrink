@@ -43,7 +43,7 @@
 
         <dict>
             <key>cell</key><string>PSGroupCell</string>
-            <key>footerText</key><string>测试模式只写日志、不动界面。日志：/var/mobile/Documents/timeshrink.log（用 Filza 打开）。确认日志里能找到时段后，关掉测试模式再试动画。by 鱼教兽</string>
+            <key>footerText</key><string>按 LiquidAss 的方式实现：只 hook 锁屏时间容器，不遍历视图树。日志：/var/mobile/Documents/timeshrink.log。测试模式只记录不动界面。by 鱼教兽</string>
         </dict>
     </array>
 </dict>
